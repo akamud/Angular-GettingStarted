@@ -3,7 +3,11 @@
     Product List
   </div>
 
-  <div class="pane-body">
+  <div class="pane-body" *ngIf="!products || !products.length">
+    Não há elementos
+  </div>
+
+  <div class="pane-body" *ngIf="products && products.length">
     <div class="row">
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
@@ -31,7 +35,17 @@
           </tr>
         </thead>
         <tbody>
-          
+          <tr *ngFor="let product of products">
+            <td>
+              <img [src]="product.imageUrl" [title]="product.productName"
+                   [style.width.px]='imageWidth'/>
+            </td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productCode}}</td>
+            <td>{{product.releaseDate}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.starRating}}</td>
+          </tr>
         </tbody>
       </table>
     </div>
