@@ -1,8 +1,10 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/codelyzer",
+    "tslint-no-unused-expression-chai"
   ],
   "rules": {
+    "no-unused-expression-chai": true,
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
@@ -68,7 +70,6 @@
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
-    "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,

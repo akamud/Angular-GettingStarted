@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { IProduct } from './product';
 
 @Component({
   selector: 'pm-products',
@@ -6,8 +7,10 @@ import { Component } from '@angular/core'
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
-  products: any[]
+  products: IProduct[]
   imageWidth: number = 50
+  showImage: boolean = false
+  listFilter: string
 
   constructor() {
     this.products = [
@@ -34,5 +37,9 @@ export class ProductsComponent {
           'http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png'
       }
     ]
+  }
+
+  toggleImage(): void {
+    this.showImage = !this.showImage
   }
 }
