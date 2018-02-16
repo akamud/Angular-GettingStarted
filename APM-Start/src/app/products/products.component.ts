@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { IProduct } from './product';
+import { IProduct } from './product'
 
 @Component({
   selector: 'pm-products',
@@ -8,9 +8,21 @@ import { IProduct } from './product';
 })
 export class ProductsComponent {
   products: IProduct[]
+  filteredProducts: IProduct[]
   imageWidth: number = 50
   showImage: boolean = false
-  listFilter: string
+  _listFilter: string
+
+  get listFilter(): string {
+    return this._listFilter
+  }
+
+  set listFilter(value: string) {
+    this._listFilter = value
+    this.filteredProducts = this.listFilter
+      ? this.performFilter(this.listFilter)
+      : this.products
+  }
 
   constructor() {
     this.products = [
@@ -37,9 +49,15 @@ export class ProductsComponent {
           'http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png'
       }
     ]
+    this.filteredProducts = this.products
   }
 
   toggleImage(): void {
     this.showImage = !this.showImage
+  }
+
+  performFilter(filter: string): IProduct[] {
+    filter = filter.toLocaleLowerCase()
+    return this.products.filter(p => p.productName.toLocaleLowerCase().includes(filter))
   }
 }
