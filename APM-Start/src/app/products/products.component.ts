@@ -58,6 +58,12 @@ export class ProductsComponent {
 
   performFilter(filter: string): IProduct[] {
     filter = filter.toLocaleLowerCase()
-    return this.products.filter(p => p.productName.toLocaleLowerCase().includes(filter))
+    return this.products.filter(p =>
+      p.productName.toLocaleLowerCase().includes(filter)
+    )
+  }
+
+  onRatingClicked(message: string): void {
+    console.log(message)
   }
 }

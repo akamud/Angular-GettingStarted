@@ -5,9 +5,10 @@ import { LOCALE_ID, NgModule } from '@angular/core'
 import { AppComponent } from './app.component'
 import { ProductsComponent } from './products/products.component'
 import { ConvertToSpaces } from './convert-to-spaces.pipe'
+import { StarComponent } from './shared/star.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductsComponent, ConvertToSpaces],
+  declarations: [AppComponent, ProductsComponent, ConvertToSpaces, StarComponent],
   imports: [BrowserModule, FormsModule],
   providers: [
     {
